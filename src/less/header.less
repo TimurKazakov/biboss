@@ -1,0 +1,67 @@
+@import "variables";
+@import "mixins";
+
+
+header{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
+
+
+
+}
+
+
+.main-header__logo{
+  display: block;
+  margin: 15px 0;
+  .resize(128px, 25px);
+
+}
+
+.main-header__content{
+  position: relative;
+  background: url("../img/header.png") no-repeat;
+  height: 420px;
+  margin-top: 8px ;
+
+  box-shadow: 0 -3px 10px 1px #34495e;
+  border-radius: 7px 7px 0 0;
+
+}
+
+.main-header__title{
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-header__title--first-title{
+  .fontUpdate("Arial", 30px);
+  margin-top: 60px;
+}
+
+.main-header__title--second-title{
+  .fontUpdate("Arial", 50px, bold);
+  margin-top: 30px;
+}
+
+.main-header__mac-image{
+  .resize(720px, 410px);
+  position: absolute;
+  bottom: -218px;
+  left: 140px;
+}
+
+.main-header__content__link{
+  color: #846ef2;
+  position: absolute;
+  top: 385px;
+  right: 360px;
+  z-index: 1;
+
+  .fontUpdate("Tahoma Regular", 16px);
+  //line-height: 60px;
+}

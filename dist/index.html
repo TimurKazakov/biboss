@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biboss</title>
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <!--<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">-->
+
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link href="/assets/css/app.css" rel="stylesheet"></head>
+
+<body style="background: url('../dist/assets/img/12345.png') white; ">
+
+<header class="main-header ">
+
+    <img src="assets/img/topLogo.png" class="main-header__logo ">
+
+    <div class="main-header__content main_header__bg" style="background: url('../dist/assets/img//header.png');">
+
+        <h2 class="main-header__title main-header__title--first-title">Поставь ссылку на БИБОСС</h2>
+        <h2 class="main-header__title main-header__title--second-title">Заработай баллы!</h2>
+        <a class="main-header__content__link" href="#">Франшиза Dunkin’ Donuts на БИБОСС</a>
+    </div>
+    <img class="main-header__mac-image" src="assets/img/mac.png">
+
+</header>
+<div class="wrapper">
+    <section class="promo ">
+        <div class="promo__intro">
+            <p class="promo__intro__title"> БИБОСС даёт возможность получить бесплатные баллы – нужно лишь разместить на сайте компании любую из ссылок:</p>
+            <ul class="promo__intro__list">
+                <li class="promo__intro__item">Текстовая ссылка «Франшиза <span class="intro__item__company-name">[Название]</span> на БИБОСС»</li>
+                <li class="promo__intro__item">Текстовая ссылка «Наша франшиза на БИБОСС»</li>
+                <li class="promo__intro__item">Кнопка “Нравится франшиза” + счетчик популярности</li>
+            </ul>
+        </div>
+
+        <div class="promo__banner">
+            <h2 class="banner__title banner__title--fitst ">Зачем нужны <a href="#" class="promo__points-link"> баллы?</a></h2>
+            <h2 class="banner__title banner__title--second ">Больше баллов — выше позиция в выдаче категории</h2>
+
+        </div>
+
+        <div class="promo__rules-and-costs">
+            <div class="promo__rules">
+                <h1 class="promo__rules__title">Правила размещения ссылки</h1>
+                <ul class="promo__rules__list">
+                    <li class="promo__rules__item">Ссылка должна быть индексируемой (без тегов &lt;noindex&gt; и &lt;nofollow&gt;)</li>
+                    <li class="promo__rules__item">Ссылка должна быть читаемой, не скрытой от глаз посетителя сайта,</li>
+                    <li class="promo__rules__item">Ссылка должна быть размещена на странице сайта, посвящённой франчайзингу,
+                    </li>
+                    <li class="promo__rules__item">При размещении ссылок на другие порталы о франчайзинге – баллы обнуляются.</li>
+                </ul>
+            </div>
+
+            <div class="promo__costs">
+                <h2 class="promo__costs__title">Стоимость ссылки</h2>
+                <ul class="promo__costs__list">
+                    <li class="promo__cost__item">
+                        <h2 class="cost__item__points">200 баллов</h2>
+                        <h2 class="cost__item__bonus">ТиЦ Вашего сайта от 10</h2>
+                    </li>
+                    <li class="promo__cost__item">
+                        <h2 class="cost__item__points">50 баллов</h2>
+                        <h2 class="cost__item__bonus">ТиЦ Вашего сайта от 0 до 10</h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="form" id="first-form">
+        <form>
+            <h2 class="form__title" >получить ссылку</h2>
+            <label class="form__name-label">Ваше имя<input id="name" required class="form__name-input " type="text" name="name" placeholder="Представьтесь, пожалуйста"></label>
+            <label class="form__telephone-label">Номер телефона<input id="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" minlength="10" maxlength="18" required class="form__telephone-input" type="tel" placeholder="Для начисления баллов и связи с Вами"></label>
+            <span id="tel-error" class="form__telephone-error display-none" >Укажите правильный телефон</span>
+
+
+            <label class="form__franchise-label">Название франшизы<input id="franchise" required class="form__franchise-input" type="text" placeholder="Например, Subway"></label>
+
+
+            <input type="submit" id="submitBtn" title="Получить ссылку" value="Получить ссылку" disabled  >
+
+        </form>
+
+
+
+<!---->
+        <script>
+            $(function() {
+                $("#franchise").autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            url: 'assets/static/data.json',
+                            data: request,
+                            dataType: "json",
+                            success: function(data) {
+                                response($.ui.autocomplete.filter(data, request.term));
+                            },
+                            error: function() {
+                                response([]);
+                            }
+                        })
+                    }
+                });
+            });
+        </script>
+
+
+
+
+<!---->
+
+    </section>
+
+    <section class="extra ">
+        <p class="extra__info"> <span class="extra__bold"> Это еще не все... </span> Вы можете заработать дополнительные баллы, если разместите на своём сайте новость, интервью или статью БИБОСС о Вашей компании с активной ссылкой! 50 баллов за активную ссылку на новость!
+        </p>
+
+
+    </section>
+</div>
+<footer>
+    <div class="footer__img-div">
+        <img src="assets/img//logo.png" class="footer_logo">
+    </div>
+</footer>
+
+<script src="index.js"></script>
+<script type="text/javascript" src="./assets/js/bundle.js"></script>
+
+<script type="text/javascript" src="/assets/js/bundle.js"></script></body>
+</html>
