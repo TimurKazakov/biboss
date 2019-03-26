@@ -5,7 +5,7 @@
 Использовались Adobe Photoshop, Chrome, Opera, Safari, Firefox, WebStorm, Git
 HTML - нативный
 СSS - препроцессор Less, JQueryUI
-JS - нативный, JQuery, стронние скрипты, Ajax(имитация запроса на сервер, через файл data.json)
+JS - нативный, JQuery, сторонние скрипты, Ajax(имитация запроса на сервер, через файл data.json)
 
 Проект собран на Webpack.
 В ходе сборки использовались:
