@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "imagemin-webpack-plugin": "^2.4.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquery-ui": "^1.12.1"
   },
   "devDependencies": {
